@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+</head>
+<body>
+    <p class="welcome">Hi! Welcome {{user.nickname()}} </p><br>
+    <p class="welcome" style="top:20px"><a href="{{ url|safe }}">{{ url_linktext }}</a></p>
+    <div class="box">
+        <form id="form1">
+            <h2>Thesis Library<h2><hr>
+            <h3>Thesis title</h3>
+            <input type="text" name="thesis_title" placeholder="thesis title"  required></input>
+            <h3>Thesis adviser</h3>
+            <input type="text" name="thesis_adviser" placeholder="thesis adviser" required></input>
+            <div class="block">
+                <h3>Year</h3>
+                <select name="yearlist" form="form1" class="selection">
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                </select>
+            </div>
+            <div class="block">
+                <h3>Section</h3>
+                <select name="section" form="form1" class="selection">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="abs_block">
+            <h3>Thesis abstract</h3>
+            <textarea name="thesis_abstract" class="tarea" cols="100" rows="20" form="form1" required></textarea>
+            <input type="submit" class="btn" value="Create">
+            </div>
+
+        </form><br><br><br>
+        <h3 class="list_label">Year | Thesis title            | Created By</h3>
+        <ul class="thesis-list">
+        </ul>
+    </div>
+    
+    <script type="text/javascript" src="/static/js/myjs.js"></script>
+
+</body>
+</html>
