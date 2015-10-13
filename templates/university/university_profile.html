@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="/static/css/style.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css">
+    </head>
+    <body>
+        <p class="welcome">Hi! Welcome {{user.nickname()}} </p><br>
+        <p class="welcome" style="top:20px"><a href="{{ url|safe }}">{{ url_linktext }}</a></p>
+
+        <div class="box">
+            <h1><small><strong>University Profile</strong></small></h1>
+            <form id="form_univ" action="/university/page/{{university.key.id()}}" method="post">
+               <div class="profile_details"><p class="label">University Name: </p><input type="text" name="u_name" value="{{university.u_name}}"></input></div>
+                <div class="profile_details"><p class="label">Initials: </p><input type="text" name="u_initials" value="{{university.u_initials}}"></input></div>
+                <div class="profile_details"><p class="label">Address: </p><input type="text" name="u_address" value="{{university.u_address}}"></input></div>
+                <input type="submit" class="btn btn-primary" value"Submit">
+            </form>
+            <a href="/university/delete/{{university.key.id()}}"><button class="btn btn-secondary" style="display:inline">Delete</button></a>
+            <a href="/"><button class="btn" style="display:inline">Cancel</button></a>
+        </div>
+        <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="/static/js/myjs.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    </body>
+</html>

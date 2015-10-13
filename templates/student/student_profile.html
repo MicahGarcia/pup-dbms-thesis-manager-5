@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="/static/css/style.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css">
+    </head>
+    <body>
+        <p class="welcome">Hi! Welcome {{user.nickname()}} </p><br>
+        <p class="welcome" style="top:20px"><a href="{{ url|safe }}">{{ url_linktext }}</a></p>
+
+        <div class="box">
+            <h1><small><strong>Student Profile</strong></small></h1>
+            <form id="form_stud" action="/student/page/{{student.key.id()}}" method="post">
+                <div class="profile_details"><p class="label">First name: </p><input type="text" name="s_first_name" value="{{student.s_first_name}}"></input></div>
+                <div class="profile_details"><p class="label">Middle name: </p><input type="text" name="s_middle_name" value="{{student.s_middle_name}}"></input></div>
+                <div class="profile_details"><p class="label">Last name: </p><input type="text" name="s_last_name" value="{{student.s_last_name}}"></input></div>
+                <div class="profile_details"><p class="label"> E-mail: </p><input type="text" name="s_email" value="{{student.s_email}}"></input></div>
+                <div class="profile_details"><p class="label">Contact number: </p><input type="text" name="s_phone_num" value="{{student.s_phone_num}}"></input></div>
+                <div class="profile_details"><p class="label">Student number: </p><input type="text" name="s_student_num" value="{{student.s_student_num}}"></input></div>
+                <div class="profile_details"><p class="label">Birthday: </p><input type="text" name="s_birthdate" value="{{student.s_birthdate}}"></input></div>
+                <div class="profile_details"><p class="label">Year Graduated: </p><input type="text" name="s_year_graduated" value="{{student.s_year_graduated}}"></input></div>
+                <div class="profile_details"><p class="label">Picture: </p><input type="file" name="s_picture" value="{{student.s_picture}}"></input></div>
+                <input type="submit" class="btn btn-primary" value"Submit">
+            </form>
+            <a href="/student/delete/{{student.key.id()}}"><button class="btn btn-secondary" style="display:inline">Delete</button></a>
+        </div>
+        <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="/static/js/myjs.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    </body>
+</html>

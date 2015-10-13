@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="/static/css/style.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css">
+    </head>
+    <body>
+        <p class="welcome">Hi! Welcome {{user.nickname()}} </p><br>
+        <p class="welcome" style="top:20px"><a href="{{ url|safe }}">{{ url_linktext }}</a></p>
+
+        <p><i>Keywords:</i></p>
+        {% for words in keywords%}
+            <div class="checkbox">
+                <label><input type="checkbox" class="keywords_cb" value="{{words}}">{{words}}</label>
+        {% endfor %}
+        </div>
+        <input type="submit" id="submit_kwords" class="btn-danger" value="Submit">
+
+        <div id='rel_th_container' class='list-inline'>
+            <ul id='rel_th_ul' style='list-style-type:none'>
+
+            </ul>
+        </div>
+
+        <div class="container">
+            <form id="form2">
+                <p id="hidden_id">{{thesis.key.id()}}</p>
+                <h2>Edit Thesis<h2><hr>
+                <h3>Thesis University</h3>
+                <input type="text" name="university" value="{{university}}" placeholder="(e.g. Polytechnic University of the Philippines)"></input>
+                <h3>Thesis Collge</h3>
+                <input type="text" name="college" value="{{college}}" placeholder="(e.g. College of Engineering)"></input>
+                <h3>Thesis Department</h3>
+                <input type="text" name="department" value="{{department}}" placeholder="(e.g. Computer Engineering Department)"></input>
+                <h3>Thesis title</h3>
+                <input type="text" name="thesis_title" value="{{thesis.thesis_title}}" placeholder="thesis title" value="{{thesis.thesis_title}}" ></input>
+                <h3>Thesis adviser</h3>
+                {% if adv != None%}
+                    <div><input type="text" name="thesis_adviser" placeholder="thesis adviser" value="{{adv.f_first_name}} {{adv.f_middle_name}} {{adv.f_last_name}}" ></input><a href="/faculty/page/{{adv.key.id()}}">Edit</a></div>
+                {% else %}
+                    <input type="text" name="thesis_adviser" placeholder="thesis adviser"></input>
+                    <a href="/faculty/create">Create Adviser</a>
+                {% endif %}
+
+                <h3>Thesis Proponents</h3>
+                {% for keys in studs%}
+                    <div><input type="text" class="thesis_proponent" value="{{studs[keys].s_first_name}} {{studs[keys].s_middle_name}} {{studs[keys].s_last_name}}" name="thesis_member{{keys + 1}}"></input><a href="/student/page/{{studs[keys].key.id()}}">Edit</a></div>
+                {% endfor %}
+
+                {% if num_proponents <5%}
+                <a href="/student/create">Create Student</a>
+                {% endif %}
+                <div class="block">
+                    <h3>Year</h3>
+                    <select name="thesis_year" form="form2" class="selection">
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>  
+                        <option value="2015">2015</option>
+                        <option selected value="{{thesis.thesis_year}}">{{thesis.thesis_year}}</option>
+                    </select>
+                </div>
+                <div class="block">
+                    <h3>Section</h3>
+                    <select name="thesis_section" form="form2" class="selection">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option selected value="{{thesis.thesis_section}}">{{thesis.thesis_section}}</option>
+                    </select>
+                </div>
+                <div class="abs_block">
+                <h3>Thesis abstract</h3>
+                <textarea name="thesis_abstract" class="tarea" cols="100" rows="20" form="form2" >{{thesis.thesis_abstract}}</textarea>
+                <input type="submit" class="btn btn-primary" value="Submit">
+                </div>
+            </form>
+            <div><a href="/"><button class="btn-danger btn">Cancel</button></a></div>
+             <div class="container" id="comment_section">
+
+              {% for greeting in greetings %}
+              <div class="row">
+                {% if greeting.author %}
+                  <b>{{ greeting.author.cr_email }}
+                    {% if user and user.user_id() == greeting.author.cr_identity %}
+                      (You)
+                    {% endif %}
+                  </b> wrote:
+                {% else %}
+                 An anonymous person wrote:
+                {% endif %}
+                <blockquote>{{ greeting.content }}</blockquote>
+              </div>
+              {% endfor %}
+
+              <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
+                <input value = "{{thesis.key.id()}}" name="thesis_id" style="visibility:hidden">
+                <div><textarea name="content" class="input-block-level" rows="3"></textarea></div>
+                <div><input type="submit" class="btn btn-large btn-primary" onclick="setItem()" value="Enter Comment"></div>
+              </form>
+            <hr>
+            </div>
+            <form id="gbook">
+                <input value = "{{thesis.key.id()}}" name="guestbook_name">
+                <input type="submit" value="Show Comments" onclick="setItem()" id="switch_btn">
+            </form>
+        </div>
+        <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+        <script>
+            function setItem()
+                {
+                    localStorage.setItem("book",25)
+                }
+            $(document).ready(function(){
+                if (localStorage.getItem("book") < 20)
+                {
+                    localStorage.setItem("book",10)
+                }
+
+                if (localStorage.getItem("book") == 10)
+                {
+                    console.log("buhehee")
+                    $('#comment_section').hide();
+                }
+                else
+                {
+                    console.log("jupak")
+                    $('#comment_section').show();
+                    localStorage.setItem("book",10)
+                }
+            })
+        </script>
+        <script type="text/javascript" src="/static/js/myjs.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    </body>
+</html>

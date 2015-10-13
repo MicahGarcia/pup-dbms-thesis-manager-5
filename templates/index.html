@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+    
+    <title>THESIS MANAGEMENT SYSTEM</title>
+
+    <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.css" media="screen" >
+
+    <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    
+
+    <!-- Custom styles for our template -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+    <body>  
+    <body class="home">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <font color= #F2F2F2><a class="navbar-brand">Thesis Management System</a></font>
+            </div>
+            </div><!--/.nav-collapse -->
+    </div> 
+
+        <p class="welcome">Hi! Welcome {{user.nickname()}} </p><br>
+        <p align="right" class="welcome" style="top:30px"><a href="{{ url|safe }}">{{ url_linktext }}</a></p>
+        <p align= "right" td class= "text-right"><input type="search" id="searcher" placeholder="SEARCH"></td>
+        <p align= "right" td class= "text-right"><button class="primary-btn btn" id="search_btn"><i class="fa fa-search"></i></td></button>
+        <p align= "right" div id='rel_th_container' class='list-inline'>
+            <ul id='searched' style='list-style-type:none'>
+
+            </ul>
+        </div>
+    <div class="jumbotron top-space">
+    <div class="container">
+
+        <p class="welcome">Welcome, {{user.nickname()}} </p><br>
+               <div class="col-md-12 col-sm-6 highlight">
+                <div class="h-caption"><i class="fa fa-star-o"></i><a href="/thesis/list"><button class="btn-primary btn">View Thesis List</button></a></div></button></a></div></div>
+                </div>
+
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6 highlight">
+                <div class="h-caption"><h4><i class="fa fa-wrench"></i><a href="/thesis/create"><button class="btn-primary btn">Create Thesis</button></a></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-user"></i><a href="/faculty/create"><button class="btn-primary btn">Add Faculty</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                <div class="h-caption"><h4><i class="fa fa-users"></i><a href="/student/create"><button class="btn-primary btn">Add Student</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                <div class="h-caption"><h4><i class="fa fa-building-o"></i><a href="/university/create"><button class="btn-primary btn">Add University</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-hospital-o"></i><a href="/college/create"><button class="btn-primary btn">Add College</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-external-link"></i><a href="/department/create"><button class="btn-primary btn">Create Department</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-list-alt"></i><a href="/faculty/list"><button class="btn-primary btn">View Faculty List</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-list-ul"></i>
+                    <div><a href="/student/list"><button class="btn-primary btn">View Student List</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-eye"></i><a href="/university/list"><button class="btn-primary btn">View University List</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-eye"></i><a href="/college/list"><button class="btn-primary btn">View College List</button></a></div></h4></div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-pencil"></i><a href="/college/list"><a href="/setup"><button class="btn-primary btn">Setup</button></a></div></button></a></div></h4></div>
+                    <form action="/csvimport" method="post">
+                    <input type="file" name="csv_name" class="form-control">
+                    <div><button class="btn-primary btn">CSV import</button></div>
+                    </form>
+                </div>
+
+
+                </div>
+            </div> <!-- /row  -->
+        
+        </div>
+    </div>
+
+        
+        <script type="text/javascript" src="../static/js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="../static/js/myjs.js"></script>
+        <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    </body>
+</html>

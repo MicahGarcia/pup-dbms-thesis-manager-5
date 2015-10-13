@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+    
+    <title>Create Thesis</title>
+
+    <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.css" media="screen" >
+
+    <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+    
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+                    <p class="welcome">Hi! Welcome {{user.nickname()}} </p><br>
+        <p align="right" class="welcome" style="top:30px"><a href="{{ url|safe }}">{{ url_linktext }}</a></p>
+            <div class="navbar-collapse collapse">
+            <div><a href="/"><button class="primary-btn btn">Home</button></a></div>
+                    <div><a href="/thesis/list/all"><button class="primary-btn btn">Show List</button></a></div>
+             <p align= "right" td class= "text-right"><input type="search" id="searcher" placeholder="SEARCH"></td>
+              <p align= "right" td class= "text-right"><button class="primary-btn btn" id="search_btn"><i class="fa fa-search"></i></td></button>
+              <p align= "right" div id='rel_th_container' class='list-inline'>
+            </ul>
+        </div>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div> 
+</div>
+    <!-- /.navbar -->
+        <div class="form-group create">
+            <form id="form1">
+                <h2><strong>Thesis Library</strong><h2><hr>
+                <h3><small><strong>Thesis University</small></h3>
+                <input type="text" class="form-control" name="university" placeholder="(e.g. Polytechnic University of the Philippines)"></input>
+                <h3><small><strong>Thesis College</strong></small></h3>
+                <input type="text" class="form-control" name="college" placeholder="(e.g. College of Engineering)"></input>
+                <h3><small><strong>Thesis Department</strong></small></h3>
+                <input type="text" class="form-control" name="department" placeholder="(e.g. Computer Engineering Department)"></input>
+                <h3><small><strong>Thesis Title</strong></small></h3>
+                <input type="text" class="form-control" name="thesis_title" placeholder="Title"  required></input>
+                <h3><small><strong>Thesis Adviser</strong></small></h3>
+                 <input type="text" class="form-control" name="thesis_adviser" placeholder="Firstname Lastname" required></input>
+                <h3><small><strong>Thesis Proponents</strong></small></h3>
+                <input type="text" class="form-control" name="thesis_member1" placeholder="Proponent 1" required></input>
+                <input type="text" class="form-control" name="thesis_member2" placeholder="Proponent 2" ></input>
+                <input type="text" class="form-control" name="thesis_member3" placeholder="Proponent 3" ></input>
+                <input type="text" class="form-control" name="thesis_member4" placeholder="Proponent 4" ></input>
+                <input type="text" class="form-control" name="thesis_member5" placeholder="Proponent 5" ></input>
+                <div class="block">
+                    <h3><small><strong>Year<strong></small></h3>
+                    <select name="thesis_year" class="form-control selection" form="form1" required>
+                        <option selected disabled value="">Year</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                    </select>
+                </div>
+                <div class="block">
+                    <h3><small><strong>Section</strong></small></h3>
+                    <select name="thesis_section" form="form1" class="form-control selection" required>
+                        <option selected disabled value="">Section</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="abs_block">
+                <h3><small><strong>Thesis abstract</strong></small></h3>
+                <textarea name="thesis_abstract" class="form-control" cols="100" rows="20" form="form1" required></textarea>
+                <input type="submit" class="btn btn-primary" value="Create">
+                </div>
+            </form>
+        </div>
+
+        <button class="danger-btn btn" id="list_thesis">Show List</button>
+
+        <h3 class="list_label"><font color="#fff">Year | Thesis title            | Adviser  |  Author</font></h3>
+        <ul class="thesis_list">
+        </ul>
+        <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="/static/js/myjs.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

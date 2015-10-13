@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+    
+    <title>College List</title>
+
+    <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.css" media="screen" >
+
+    <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+    
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+                    <p class="welcome">Hi! Welcome {{user.nickname()}} </p><br>
+        <p align="right" class="welcome" style="top:30px"><a href="{{ url|safe }}">{{ url_linktext }}</a></p>
+            <div class="navbar-collapse collapse">
+            <div><a href="/"><button class="primary-btn btn">Home</button></a></div>
+                    <div><a href="/thesis/list/all"><button class="primary-btn btn">Show List</button></a></div>
+             <p align= "right" td class= "text-right"><input type="search" id="searcher" placeholder="SEARCH"></td>
+              <p align= "right" td class= "text-right"><button class="primary-btn btn" id="search_btn"><i class="fa fa-search"></i></td></button>
+              <p align= "right" div id='rel_th_container' class='list-inline'>
+            </ul>
+        </div>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div> 
+</div>
+    <!-- /.navbar -->
+        <center><h3><strong>College List</strong></h3><hr></center>
+        <center><h4 class="list_label">--College Name--</h4></center>
+        <ul class="university-list">
+            {% for c in college%}
+                <li>{{c.c_name}}<a class="btn-primary" href='/college/page/{{c.key.id()}}'><button class="btn-primary btn">View Details</button></a></li>
+            {% endfor %}
+        </ul>
+        <script type
+        <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="/static/js/myjs.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
